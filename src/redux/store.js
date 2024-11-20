@@ -1,55 +1,29 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
+import barbersPerformanceReducer from "./barbersPerformanceSlice";
+import barChartReducer from './barChartSlice'
+import keyMetricsReducer from "./keyMetricsSlice";
+import lineChartReducer from "./lineChartSlice";
+import performanceReportsReducer from "./performanceReportsSlice";
+import pieChartReducer from "./pieChartSlice";
+import reportReducer from "./reportSlice";
+import salesOverviewReducer from "./salesOverviewSlice";
+import sidebarReducer from "./sidebarSlice";
+import statsReducer from "./statsSlice";
+import topCustomersReducer from "./topCustomersSlice";
+import userAnalyticsReducer from "./userAnalyticsSlice";
 
-// Sample data structure for the barbershop
-const initialState = {
-  dailyStats: {
-    totalIncome: 0,
-    servicesProvided: 0,
-    tips: 0,
-  },
-  monthlyStats: {
-    totalIncome: 0,
-    servicesProvided: 0,
-    tips: 0,
-  },
-  barbersPerformance: [
-    { id: 1, name: "John Doe", clientsServed: 50, totalRevenue: 500 },
-    { id: 2, name: "Jane Smith", clientsServed: 40, totalRevenue: 400 },
-  ],
-  topCustomers: [
-    { id: 1, name: "Customer A", visits: 10, totalSpent: 150 },
-    { id: 2, name: "Customer B", visits: 8, totalSpent: 120 },
-  ],
-};
-
-const barbershopSlice = createSlice({
-  name: "barbershop",
-  initialState,
-  reducers: {
-    setDailyStats: (state, action) => {
-      state.dailyStats = action.payload;
-    },
-    setMonthlyStats: (state, action) => {
-      state.monthlyStats = action.payload;
-    },
-    setBarbersPerformance: (state, action) => {
-      state.barbersPerformance = action.payload;
-    },
-    setTopCustomers: (state, action) => {
-      state.topCustomers = action.payload;
-    },
-  },
-});
-
-export const {
-  setDailyStats,
-  setMonthlyStats,
-  setBarbersPerformance,
-  setTopCustomers,
-} = barbershopSlice.actions;
-
-export default configureStore({
+const store = configureStore({
   reducer: {
-    barbershop: barbershopSlice.reducer,
+    barbersPerformance: barbersPerformanceReducer,
+    barChart: barChartReducer, keyMetrics: keyMetricsReducer,
+    lineChart: lineChartReducer,performanceReports: performanceReportsReducer,
+    pieChart: pieChartReducer,report: reportReducer,
+    salesOverview: salesOverviewReducer,sidebar: sidebarReducer,
+    stats: statsReducer,topCustomers: topCustomersReducer,
+    userAnalytics: userAnalyticsReducer,
+
+
   },
 });
+
+export default store;

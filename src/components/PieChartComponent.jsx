@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setPieChartData } from "../redux/pieChartSlice";
 import {
   PieChart,
   Pie,
@@ -8,8 +10,24 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const PieChartComponent = ({ data, onSliceClick }) => {
+const PieChartComponent = ({ onSliceClick }) => {
   const COLORS = ["#D4AF37", "#9E2A2F", "#4C6B33", "#F4E1C1"];
+  const dispatch = useDispatch();
+
+  // Fetch pie chart data from Redux store
+  const data = useSelector((state) => state.pieChart.data);
+
+  useEffect(() => {
+    // Simulated data fetch
+    const mockData = [
+      { name: "Category A", value: 400 },
+      { name: "Category B", value: 300 },
+      { name: "Category C", value: 200 },
+      { name: "Category D", value: 100 },
+    ];
+
+    dispatch(setPieChartData(mockData));
+  }, [dispatch]);
 
   return (
     <ResponsiveContainer width="100%" height={400}>
