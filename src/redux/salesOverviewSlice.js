@@ -16,12 +16,6 @@ const initialState = {
     { id: 4, name: "Elite Clippers", revenue: 18000 },
     { id: 5, name: "Classic Styles", revenue: 15000 },
   ],
-  stats: {
-    totalRevenueYearly: "$250,000",
-    monthlyRevenue: "$20,000",
-    quarterlyRevenue: "$60,000",
-    avgSalesPerShop: "$1,500",
-  },
 };
 
 const salesOverviewSlice = createSlice({
@@ -34,16 +28,10 @@ const salesOverviewSlice = createSlice({
     updateBarbershopData(state, action) {
       state.barbershopData = action.payload;
     },
-    updateStats(state, action) {
-      state.stats = { ...state.stats, ...action.payload };
-    },
   },
 });
 
-export const {
-  updateRevenueData,
-  updateBarbershopData,
-  updateStats,
-} = salesOverviewSlice.actions;
+export const { updateRevenueData, updateBarbershopData } =
+  salesOverviewSlice.actions;
 
 export default salesOverviewSlice.reducer;

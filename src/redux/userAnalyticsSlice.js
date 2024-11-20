@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   activeUsers: 3000,
-  engagementStats: "Logins: 5/week on average.",
   feedback: [
     "Great service, very professional!",
     "Needs improvement in appointment scheduling.",
@@ -18,9 +17,6 @@ const userAnalyticsSlice = createSlice({
     setActiveUsers(state, action) {
       state.activeUsers = action.payload;
     },
-    setEngagementStats(state, action) {
-      state.engagementStats = action.payload;
-    },
     setFeedback(state, action) {
       state.feedback = action.payload;
     },
@@ -30,7 +26,7 @@ const userAnalyticsSlice = createSlice({
   },
 });
 
-export const { setActiveUsers, setEngagementStats, setFeedback, addFeedback } =
+export const { setActiveUsers, setFeedback, addFeedback } =
   userAnalyticsSlice.actions;
 
 export default userAnalyticsSlice.reducer;

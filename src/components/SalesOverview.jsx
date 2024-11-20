@@ -11,14 +11,6 @@ const SalesOverview = () => {
 
   return (
     <div className="space-y-8">
-      {/* Revenue Summary */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <StatsCard title="Total Revenue (Yearly)" value={stats.totalRevenueYearly} />
-        <StatsCard title="Monthly Revenue" value={stats.monthlyRevenue} />
-        <StatsCard title="Quarterly Revenue" value={stats.quarterlyRevenue} />
-        <StatsCard title="Average Sales Per Shop" value={stats.avgSalesPerShop} />
-      </div>
-
       {/* Sales by Barbershop */}
       <div className="bg-white p-6 shadow-luxury rounded-lg">
         <h2 className="text-2xl font-lobster text-black mb-4">
